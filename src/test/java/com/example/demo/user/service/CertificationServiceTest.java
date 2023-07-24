@@ -1,11 +1,9 @@
 package com.example.demo.user.service;
 
 import com.example.demo.mock.FakeMailSender;
-import com.example.demo.user.service.port.MailSender;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CertificationServiceTest {
 
@@ -21,6 +19,6 @@ public class CertificationServiceTest {
         //then
         assertThat(fakeMailSender.email).isEqualTo("kok202@naver.com");
         assertThat(fakeMailSender.title).isEqualTo("Please certify your email address");
-        assertThat(fakeMailSender.content).isEqualTo( "Please click the following link to certify your email address: http://localhost:8080/api/users/1/verify?certificationCode=aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa");
+        assertThat(fakeMailSender.content).isEqualTo("Please click the following link to certify your email address: http://localhost:8080/api/users/1/verify?certificationCode=aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa");
     }
 }
