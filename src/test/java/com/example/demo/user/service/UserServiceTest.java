@@ -27,7 +27,7 @@ public class UserServiceTest {
         this.userService = UserServiceImpl.builder()
                 .uuidHolder(new TestUuidHolder("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaab"))
                 .clockHolder(new TestClockHolder(1678530673958L))
-                .certificationService(new CertificationServiceImpl(fakeMailSender))
+                .certificationService(new CertificationService(fakeMailSender))
                 .userRepository(fakeUserRepository)
                 .build();
 
