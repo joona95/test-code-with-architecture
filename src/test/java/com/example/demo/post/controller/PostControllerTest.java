@@ -37,7 +37,7 @@ public class PostControllerTest {
                 .createdAt(100L)
                 .build());
         // when
-        ResponseEntity<PostResponse> result = testContainer.postController.getPostById(1);
+        ResponseEntity<PostResponse> result = testContainer.postController.getById(1);
         // then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
         assertThat(result.getBody()).isNotNull();
@@ -55,7 +55,7 @@ public class PostControllerTest {
         // when
         // then
         assertThatThrownBy(() -> {
-            testContainer.postController.getPostById(1);
+            testContainer.postController.getById(1);
         }).isInstanceOf(ResourceNotFoundException.class);
     }
 
@@ -80,7 +80,7 @@ public class PostControllerTest {
                 .createdAt(100L)
                 .build());
         // when
-        ResponseEntity<PostResponse> result = testContainer.postController.updatePost(1L, PostUpdate.builder()
+        ResponseEntity<PostResponse> result = testContainer.postController.update(1L, PostUpdate.builder()
                 .content("foobar")
                 .build());
         // then
